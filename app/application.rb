@@ -1,3 +1,4 @@
+
 class Application
 
 def call(env)
@@ -5,8 +6,8 @@ def call(env)
   req = Rack::Request.new(env)
 
   if req.path=="/items/"
-    resp.write item.price 
-
+    resp.write item.price
+  end
 end
 
 
