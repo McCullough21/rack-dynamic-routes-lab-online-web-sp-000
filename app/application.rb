@@ -8,7 +8,7 @@ def call(env)
     item_name = req.path.split("/items/").last
     @@items.each do |item|
       if item == item_name
-      resp.write item.price
+      resp.write item.price.to_s
       end
     end
 
