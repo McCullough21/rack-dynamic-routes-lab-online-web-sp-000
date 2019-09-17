@@ -9,7 +9,7 @@ def call(env)
       item_name = req.path.split("/items/").last
       @@items.each do |i|
         if i.name == item_name
-          resp.write item.price
+          resp.write i.price
         else
           resp.write "Item not found"
           resp.status 400
