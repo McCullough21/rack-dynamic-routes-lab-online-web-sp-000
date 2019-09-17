@@ -6,13 +6,11 @@ def call(env)
 
   if req.path.match ("/items/")
     item_name = req.path.split("/items/").last
-    @@items.each do |item|
-      if item == item_name
+    item = @@items.find{|i| i.name == item_name}
+
       resp.write item.price.to_s
-      end
-    end
-  resp.finish
   end
+  resp.finish
 end
 
 
