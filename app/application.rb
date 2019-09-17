@@ -9,7 +9,7 @@ def call(env)
     @@items.each do |item|
       if item == item_name
       resp.write item.price
-      
+
   end
 end
 
