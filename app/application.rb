@@ -7,7 +7,7 @@ def call(env)
   if req.path.match ("/items/")
     if
       item_name = req.path.split("/items/").last
-      item = @@items.find do |i|
+      @@items.each do |i|
         if i.name == item_name
           resp.write item.price
         else
