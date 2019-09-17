@@ -5,9 +5,9 @@ def call(env)
   req = Rack::Request.new(env)
 
   if req.path=="/items/"
-    @@items.each do |item|
-      
-    resp.write item.price
+    item_name = req.path.split("/items/").last
+      item = @@items.find{|s| s.name == item_name}
+      resp.write item.price
   end
 end
 
