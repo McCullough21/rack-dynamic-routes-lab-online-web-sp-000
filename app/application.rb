@@ -11,7 +11,7 @@ def call(env)
       resp.write item.price.to_s
       end
     end
-
+  resp.finish
   end
 end
 
