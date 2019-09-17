@@ -7,15 +7,13 @@ def call(env)
   if req.path.match ("/items/")
     if
       item_name = req.path.split("/items/").last
-      @@items.each do |i|
-        if i.name == item_name
-          resp.write i.price
-        else
-          resp.write "Item not found"
-          resp.status 400
-        end
+      item = @@items.find{|i| i.name == item_name}
+      if @@items.include?(item)
+      resp.write item.price
+      else
+      resp.write "Item not found"
+      resp.status 400
       end
-    end
   else
     resp.write "Route not found"
       resp.status = 404
